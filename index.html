@@ -83,19 +83,19 @@
 <hr>
 
 <h1>Select your allergies</h1>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Eggs</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Milk</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Peanut</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Wheat</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Soy</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Fish</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Shellfish</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Cashews</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Almonds</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Sesame</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Rice</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Cucumber</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"><label class="form-check-label" for="flexCheckDefault">Other(List all)  <input type="text"</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Eggs"><label class="form-check-label" for="flexCheckDefault">Eggs</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Milk"><label class="form-check-label" for="flexCheckDefault">Milk</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Peanut"><label class="form-check-label" for="flexCheckDefault">Peanut</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Wheat"><label class="form-check-label" for="flexCheckDefault">Wheat</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Soy"><label class="form-check-label" for="flexCheckDefault">Soy</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Fish"><label class="form-check-label" for="flexCheckDefault">Fish</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Shellfish"><label class="form-check-label" for="flexCheckDefault">Shellfish</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Cashews"><label class="form-check-label" for="flexCheckDefault">Cashews</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Almonds"><label class="form-check-label" for="flexCheckDefault">Almonds</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Sesame"><label class="form-check-label" for="flexCheckDefault">Sesame</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Rice"><label class="form-check-label" for="flexCheckDefault">Rice</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Cucumber"><label class="form-check-label" for="flexCheckDefault">Cucumber</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Other"><label class="form-check-label" for="flexCheckDefault">Other(List all)  <input type="text"</label></div>
 
 
 
@@ -105,24 +105,10 @@
   <input type="date" id="birthday" name="birthday">
 
 
-<button type="submit" onclick='document.getElementById("forms_part").style.display="none";  document.getElementById("food_blocks").style.display="inline"' class="btn btn-primary mt-3">Submit</button>
-
-
-
-
-
-
-  </div>
+<button type="submit" onclick='submit_form()' class="btn btn-primary mt-3">Submit</button>
+</div>
 <div class="row" id="food_blocks">
 	<h2> Reccomendations</h2>
-    <div class="col-md-4">
-      <div class="thumbnail">
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>Eggs</p>
-          </div>
-      </div>
-    </div>
     <div class="col-md-4">
       <div class="thumbnail">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJfPNVEOX2PrY2RJUgK3kW-P7faooZwmRbv_GZ4raA&s" alt="Nature" style="width:100%">
@@ -145,6 +131,19 @@
 </div>
 <script>
 document.getElementById("food_blocks").style.display="none";
+function submit_form()
+{
+	document.getElementById("forms_part").style.display="none"; 	
+    document.getElementById("food_blocks").style.display="inline";
+    if (document.getElementById("Eggs").checked === false)
+    {
+    	document.getElementById("food_blocks").innerHTML += "<div class='col-md-4'><div class='thumbnail'><img src='https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg' alt='Lights' style='width:100%'><div class='caption'><p>Eggs</p></div></div></div>";
+    }
+    if (document.getElementById("Milk").checked === false)
+    {
+    	document.getElementById("food_blocks").innerHTML += "<div class='col-md-4'><div class='thumbnail'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/220px-Glass_of_Milk_%2833657535532%29.jpg' alt='Lights' style='width:100%'><div class='caption'><p>Milk</p></div></div></div>";
+    }
+}
 </script>
 </body>
 

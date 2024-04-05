@@ -109,39 +109,17 @@
 </div>
 <div class="row" id="food_blocks">
 	<h2> Reccomendations</h2>
-    <div class="col-md-4">
-      <div class="thumbnail">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJfPNVEOX2PrY2RJUgK3kW-P7faooZwmRbv_GZ4raA&s" alt="Nature" style="width:100%">
-          <div class="caption">
-            <p>Apples</p>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeLTrQ2Gh1bMKwIBtja6zqPEhqgBsMHUitkxEk0JxXw&s" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Bananas</p>
-          </div>
-      </div>
-    </div>
-
 </div>
 </div>
 </div>
 <script>
 document.getElementById("food_blocks").style.display="none";
+const foods = ["Apples","Bananas","Eggs","Milk","Peanut"];
+const food_links = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJfPNVEOX2PrY2RJUgK3kW-P7faooZwmRbv_GZ4raA&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeLTrQ2Gh1bMKwIBtja6zqPEhqgBsMHUitkxEk0JxXw&s","https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/220px-Glass_of_Milk_%2833657535532%29.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZRT6645QUo4YU_q6iC9sREPG8Tqr9j20DdJN4fX9vQ&s"];
 function submit_form()
 {
-	document.getElementById("forms_part").style.display="none"; 	
-    document.getElementById("food_blocks").style.display="inline";
-    if (document.getElementById("Eggs").checked === false)
-    {
-    	document.getElementById("food_blocks").innerHTML += "<div class='col-md-4'><div class='thumbnail'><img src='https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg' alt='Lights' style='width:100%'><div class='caption'><p>Eggs</p></div></div></div>";
-    }
-    if (document.getElementById("Milk").checked === false)
-    {
-    	document.getElementById("food_blocks").innerHTML += "<div class='col-md-4'><div class='thumbnail'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/220px-Glass_of_Milk_%2833657535532%29.jpg' alt='Lights' style='width:100%'><div class='caption'><p>Milk</p></div></div></div>";
+    for (int i = 0; i<foods.length){
+    	document.getElementById("food_blocks").innerHTML += "<div class='col-md-4'><div class='thumbnail'><img src="+food_links[i]+" alt='Lights' style='width:100%'><div class='caption'><p>"+foods[i]+"</p></div></div></div>";
     }
 }
 </script>

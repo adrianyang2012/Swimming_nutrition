@@ -120,11 +120,9 @@ const food_links = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJf
 function submit_form()
 {
 	for (let i = 0; i<all_foods.length; i++){
-    	alert(document.getElementById(all_foods[i]).checked));
-    	if (document.getElementById(all_foods[i]).checked) === false){
-        	alert("adsfasdfasdfasdf")
-    		foods.push(all_foods[i]);
-        }
+    		if (document.getElementById(all_foods[i]).checked) === false){
+    			foods.push(all_foods[i]);
+        	}
     }
     document.getElementById("food_blocks").style.display = 'block';
     document.getElementById("forms_part").style.display = 'none';

@@ -23,27 +23,27 @@
 <hr>
 <h2>What is your age</h2>
     <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio1" name="age" value="option1">
+      <input type="radio" class="form-check-input" id="radio1" name="age" value=1>
       <label class="form-check-label" for="radio1">&lt10</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio2" name="age" value="option1">
+      <input type="radio" class="form-check-input" id="radio2" name="age" value=2>
       <label class="form-check-label" for="radio1">11-18</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio3" name="age" value="option1">
+      <input type="radio" class="form-check-input" id="radio3" name="age" value=3>
       <label class="form-check-label" for="radio1">19-25</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio4" name="age" value="option1">
+      <input type="radio" class="form-check-input" id="radio4" name="age" value=4>
       <label class="form-check-label" for="radio1">25-35</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio5" name="age" value="option1">
+      <input type="radio" class="form-check-input" id="radio5" name="age" value=5>
       <label class="form-check-label" for="radio1">35-65</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio6" name="age" value="option1">
+      <input type="radio" class="form-check-input" id="radio6" name="age" value=6>
       <label class="form-check-label" for="radio1">65+</label>
     </div>
 <hr>
@@ -115,14 +115,31 @@
 <script>
 document.getElementById("food_blocks").style.display="none";
 const all_foods = ["Apples","Bananas","Eggs","Milk","Peanut"];
-const foods = [];
+const carbs = ["Apples","Bananas","Milk"];
+const proteins = ["Eggs","Milk"];
+=const foods = [];
 const food_links = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJfPNVEOX2PrY2RJUgK3kW-P7faooZwmRbv_GZ4raA&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeLTrQ2Gh1bMKwIBtja6zqPEhqgBsMHUitkxEk0JxXw&s","https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/220px-Glass_of_Milk_%2833657535532%29.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZRT6645QUo4YU_q6iC9sREPG8Tqr9j20DdJN4fX9vQ&s"];
 function submit_form()
 {
+    var points_for_carbs = 0;
+    var ele = document.getElementsByName('age');
+ 
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked){
+					 points_for_protein += 3-ele[i].value;
+                }
+            }
+    
 	for (let i = 0; i<all_foods.length; i++){
     		try {
     			if (document.getElementById(all_foods[i]).checked === false){
-    				foods.push(all_foods[i]);
+                	if (all_foods[i] in carbs && points_for_protein < 0){
+    					foods.push(all_foods[i]);
+                    } 
+                    else if (all_foods[i] in proteins && points_for_protein >= 0)
+                    {
+                    	foods.push(all_foods[i]);
+                    }
         		}
             }
             catch(err) {
@@ -133,7 +150,7 @@ function submit_form()
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
     
-    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:100%'></img><p>"+foods[i]+"</p>";
+    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:10%'></img><p >"+foods[i]+"</p >";
     }
 }
 </script>

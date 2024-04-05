@@ -120,16 +120,21 @@ const food_links = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJf
 function submit_form()
 {
 	for (let i = 0; i<all_foods.length; i++){
-    		if (document.getElementById(all_foods[i]).checked) === false){
-    			foods.push(all_foods[i]);
-        	}
+    		try {
+    			if (document.getElementById(all_foods[i]).checked === false){
+    				foods.push(all_foods[i]);
+        		}
+            }
+            catch(err) {
+            	foods.push(all_foods[i]);
+            }
     }
     document.getElementById("food_blocks").style.display = 'block';
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
-    	document.getElementById("food_blocks").innerHTML += "<div class='col-md-4'><div class='thumbnail'><img src="+food_links[all_foods.findIndex(foods[i])]+" alt='Lights' style='width:100%'><div class='caption'><p>"+foods[i]+"</p></div></div></div>";
+    
+    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:100%'></img><p>"+foods[i]+"</p>";
     }
-
 }
 </script>
 </body>

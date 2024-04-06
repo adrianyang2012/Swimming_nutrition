@@ -95,7 +95,7 @@
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Sesame"><label class="form-check-label" for="flexCheckDefault">Sesame</label></div>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Rice"><label class="form-check-label" for="flexCheckDefault">Rice</label></div>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Cucumber"><label class="form-check-label" for="flexCheckDefault">Cucumber</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Other"><label class="form-check-label" for="flexCheckDefault">Other(List all)  <input type="text"</label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Other"><label class="form-check-label" for="flexCheckDefault">Other(List all)  <input value = "Apples" type="text" id="other_thing"></label></div>
 
 
 
@@ -115,42 +115,36 @@
 <script>
 document.getElementById("food_blocks").style.display="none";
 const all_foods = ["Apples","Bananas","Eggs","Milk","Peanut"];
-const carbs = ["Apples","Bananas","Milk"];
-const proteins = ["Eggs","Milk"];
-=const foods = [];
+
+const foods = [];
 const food_links = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJfPNVEOX2PrY2RJUgK3kW-P7faooZwmRbv_GZ4raA&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeLTrQ2Gh1bMKwIBtja6zqPEhqgBsMHUitkxEk0JxXw&s","https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/220px-Glass_of_Milk_%2833657535532%29.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZRT6645QUo4YU_q6iC9sREPG8Tqr9j20DdJN4fX9vQ&s"];
 function submit_form()
 {
-    var points_for_carbs = 0;
-    var ele = document.getElementsByName('age');
- 
-            for (i = 0; i < ele.length; i++) {
-                if (ele[i].checked){
-					 points_for_protein += 3-ele[i].value;
-                }
-            }
-    
+
 	for (let i = 0; i<all_foods.length; i++){
     		try {
     			if (document.getElementById(all_foods[i]).checked === false){
-                	if (all_foods[i] in carbs && points_for_protein < 0){
-    					foods.push(all_foods[i]);
-                    } 
-                    else if (all_foods[i] in proteins && points_for_protein >= 0)
-                    {
-                    	foods.push(all_foods[i]);
-                    }
+                	foods.push(all_foods[i]);
         		}
             }
             catch(err) {
-            	foods.push(all_foods[i]);
+            	try {
+            		if (all_foods[i] in document.getElementById("other_thing").split(' ') == false){
+                	foods.push(all_foods[i]);
+                	}
+                }
+                catch(err)
+                {
+                	foods.push(all_foods[i]);
+                }
+
             }
     }
     document.getElementById("food_blocks").style.display = 'block';
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
     
-    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:10%'></img><p >"+foods[i]+"</p >";
+    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:10%'></img><p>"+foods[i]+"</p >";
     }
 }
 </script>

@@ -8,12 +8,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
   <style>
-    	.thumbnail{
-    	margin-left:20px;
+    img {
+    display:inline;
     }
-    .thumbnail:hover {
-    	margin-left:15px;
-    }
+    
   </style>
 </head>
 <body>
@@ -144,7 +142,7 @@ function submit_form()
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
     
-    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:10%'></img><p>"+foods[i]+"</p >";
+    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='width:20%'></img><p style = 'display:inline'>"+foods[i]+"</p >";
     }
 }
 </script>

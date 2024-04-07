@@ -89,7 +89,7 @@
 
 <hr>
 
-<h1>Select your allergies</h1>
+<h1>Select your allergies and foods you do not want to eat</h1>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Eggs"><label class="form-check-label" for="flexCheckDefault">Eggs</label></div>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Milk"><label class="form-check-label" for="flexCheckDefault">Milk</label></div>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Peanut"><label class="form-check-label" for="flexCheckDefault">Peanut</label></div>
@@ -102,7 +102,7 @@
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Sesame"><label class="form-check-label" for="flexCheckDefault">Sesame</label></div>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Rice"><label class="form-check-label" for="flexCheckDefault">Rice</label></div>
 <div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Cucumber"><label class="form-check-label" for="flexCheckDefault">Cucumber</label></div>
-<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Other"><label class="form-check-label" for="flexCheckDefault">Other(List all)  <input value = "" type="text" id="other_thing"></label></div>
+<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="Other"><label class="form-check-label" for="flexCheckDefault">Other(List all and seperate by space)  <input value = "" type="text" id="other_thing" placeholder="e.g. Apples Bananas"></label></div>
 
 
 
@@ -151,7 +151,7 @@ function submit_form()
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
     
-    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='border: 1px solid; width:20%;'></img><p style='display:inline;'>"+foods[i]+"</p>";
+    	document.getElementById("food_blocks").innerHTML += "<img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='border: 1px solid; width:20%;'></img><p style='display:inline; class = '' '>"+foods[i]+"</p>";
     }
 }
 </script>

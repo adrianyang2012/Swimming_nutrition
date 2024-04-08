@@ -104,11 +104,10 @@
 	<h2> Reccomendations</h2>
 </div>
 </div>
-</div>
 <script>
 document.getElementById("food_blocks").style.display="none";
 const all_foods = ["Apples","Bananas","Eggs","Milk","Peanut","Rice","Cucumber"];
-const data = ['']
+const data = ['14% carbs 0% fats 0% proteins',"23% carbs 0% fats 1% proteins","1% carbs 63% fats 36% proteins","5% carbs 35% fats 20% proteins","16% carbs 49% fats 26% proteins","28% carbs 1% fats 3% proteins","4% carbs 0% fats 1% proteins"]
 const foods = [];
 const food_links = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxZJfPNVEOX2PrY2RJUgK3kW-P7faooZwmRbv_GZ4raA&s","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeLTrQ2Gh1bMKwIBtja6zqPEhqgBsMHUitkxEk0JxXw&s","https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/220px-Glass_of_Milk_%2833657535532%29.jpg","https://www.crazyrichards.com/wp-content/uploads/2016/11/PeanutParallax_3.png","https://www.allrecipes.com/thmb/RKpnSHLUDT2klppYgx8jAF47GyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/52490-PuertoRicanSteamedRice-DDMFS-061-4x3-3c3da714aa614037ad1c135ec303526d.jpg","https://www.kroger.com/product/images/large/front/0000000004062"];
 function submit_form()
@@ -137,7 +136,7 @@ function submit_form()
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
     
-    	document.getElementById("food_blocks").innerHTML += "<figure class='image_group'><img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='border: 1px solid; width:220px; height:220px;'><figcaption style='display:inline; class = '' '>"+foods[i]+""+""+"</figcaption></figure>";
+    	document.getElementById("food_blocks").innerHTML += "<figure class='image_group'><img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='border: 1px solid; width:220px; height:220px;'><figcaption style='display:inline; class = '' '>"+foods[i]+"</figcaption></figure>";
     }
 }
 </script>
@@ -170,11 +169,28 @@ function submit_form()
   		right: 220px;
         font-size:20px;
   		background-color: black;
+        opacity:0.7;
   		color: white;
   		padding-left: 0px;
   		padding-right: 0px;
     }
-   
+    .shower {
+    	position:fixed;
+		top: 0px; left: 0px;
+		transform: translate(calc(50vw - 50%));
+    }
+   	.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: grey;
+  padding-top: 50px;
+}
 
   </style>
 </body>

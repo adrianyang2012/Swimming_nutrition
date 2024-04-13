@@ -136,7 +136,7 @@ function submit_form()
     document.getElementById("forms_part").style.display = 'none';
     for (let i = 0; i<foods.length; i++) {
     
-    	document.getElementById("food_blocks").innerHTML += "<figure class='image_group'><img src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='border: 1px solid; width:220px; height:220px;'><figcaption style='display:inline; class = '' '>"+foods[i]+"</figcaption></figure>";
+    	document.getElementById("food_blocks").innerHTML += "<figure class='image_group'><img onlick= 'alert(all_foods.indexOf(foods[i]))'src='" + food_links[all_foods.indexOf(foods[i])] + "' alt='Lights' style='border: 1px solid; width:220px; height:220px;'><figcaption style='display:inline; class = '' '>"+foods[i]+"</figcaption></figure>";
     }
 }
 </script>
